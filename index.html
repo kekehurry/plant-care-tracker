@@ -1,1 +1,44 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#2f6b4f"><title>植物养护追踪</title><style>body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:#f6f8f4;color:#203126}header{position:sticky;top:0;background:#f6f8f4ee;backdrop-filter:blur(12px);border-bottom:1px solid #dfe7df;padding:max(14px,env(safe-area-inset-top)) 14px 12px}main{max-width:920px;margin:auto;padding:14px}.title{font-size:24px;font-weight:800}.sub{font-size:13px;color:#718077;margin-top:4px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}@media(max-width:650px){.grid{grid-template-columns:1fr}}.card,.log{background:white;border:1px solid #dfe7df;border-radius:18px;padding:15px}.card h2{margin:0;font-size:18px}.badge{display:inline-block;margin-top:7px;padding:5px 9px;border-radius:999px;background:#e7f1eb;color:#2f6b4f;font-size:12px;font-weight:700}.meta{display:grid;gap:7px;margin-top:12px;font-size:14px}.muted{color:#718077}section{margin-top:20px}section h3{margin:0 0 10px}.logs{display:grid;gap:10px}.log .head{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:#718077;margin-bottom:6px}</style></head><body><header><div class="title">🌿 植物养护追踪</div><div class="sub">龟背竹 · 发财树 · 文竹 · 仙人掌 · 蝴蝶兰</div></header><main><div class="grid" id="cards"></div><section><h3>最近养护记录</h3><div class="logs" id="logs"></div></section></main><script>const plants=[{name:'龟背竹',interval:7,status:'2026-10-17 已浇透至盆底出水；浇前仅有极轻微湿气，后续等土下3–5cm明显干再浇',rule:'土下3–5cm明显干、盆变轻后再浇透'},{name:'发财树',interval:10,status:'2026-10-17 已浇水；继续观察未来1–2周是否新增黄叶',rule:'土下3–5cm干、盆变轻再浇透'},{name:'文竹',interval:5,status:'2026-10-17 已浇水；基部多根枝条黄化，倾向此前过度失水，保留绿色枝观察3–7天',rule:'土下2–3cm开始发干即可浇'},{name:'仙人掌',interval:14,status:'2026-10-17 首次浇水；后续必须等基质完全干透再浇',rule:'盆土基本完全干透后再浇'},{name:'蝴蝶兰',interval:7,status:'2026-10-17 已浇水；花期与叶片状态良好',rule:'根银灰且植料基本干再浇透沥干'}];const logs=[{plant:'龟背竹',date:'2026-10-17',type:'浇水',text:'已浇透至盆底出水；后续等明显干再浇。'},{plant:'发财树',date:'2026-10-17',type:'浇水',text:'盆土基本干后已浇透；继续观察黄叶。'},{plant:'文竹',date:'2026-10-17',type:'浇水',text:'盆土此前干到结块，已补水；基部黄化继续观察。'},{plant:'仙人掌',date:'2026-10-17',type:'浇水',text:'首次浇水；下次必须等基质完全干透。'},{plant:'蝴蝶兰',date:'2026-10-17',type:'浇水',text:'已浇水并充分沥干；约7天后检查根色和植料。'},{plant:'发财树',date:'2026-10-14',type:'照片观察',text:'出现两片受损/发黄叶片。'},{plant:'蝴蝶兰',date:'2026-10-12',type:'照片观察',text:'花期整体状态良好。'}];function addDays(s,n){let d=new Date(s+'T00:00:00');d.setDate(d.getDate()+n);return d.toISOString().slice(0,10)};cards.innerHTML=plants.map(p=>`<article class="card"><h2>${p.name}</h2><span class="badge">约每 ${p.interval} 天检查</span><div class="meta"><div><b>最近浇水：</b><span class="muted">2026-10-17</span></div><div><b>下次检查：</b><span class="muted">${addDays('2026-10-17',p.interval)}</span></div><div><b>当前状态：</b><span class="muted">${p.status}</span></div><div><b>浇水判断：</b><span class="muted">${p.rule}</span></div></div></article>`).join('');logs.innerHTML=logs.map(r=>`<div class="log"><div class="head"><span><b>${r.plant}</b> · ${r.type}</span><span>${r.date}</span></div><div>${r.text}</div></div>`).join('');</script></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#2f6b4f">
+<title>植物养护追踪</title>
+<style>
+:root{--bg:#f6f8f4;--card:#fff;--text:#203126;--muted:#718077;--line:#dfe7df;--green:#2f6b4f;--green2:#e7f1eb}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text)}
+header{position:sticky;top:0;z-index:10;background:#f6f8f4ee;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:max(14px,env(safe-area-inset-top)) 14px 12px}
+main{max-width:960px;margin:auto;padding:14px 14px calc(24px + env(safe-area-inset-bottom))}.title{font-size:24px;font-weight:800}.sub{font-size:13px;color:var(--muted);margin-top:4px}
+.summary{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 11px;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}@media(max-width:650px){.grid{grid-template-columns:1fr}}
+.card,.log{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:15px}.card h2{margin:0;font-size:18px}.badge{display:inline-block;margin-top:7px;padding:5px 9px;border-radius:999px;background:var(--green2);color:var(--green);font-size:12px;font-weight:700}.meta{display:grid;gap:7px;margin-top:12px;font-size:14px}.muted{color:var(--muted)}section{margin-top:22px}section h3{margin:0 0 10px}.logs{display:grid;gap:10px}.log .head{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--muted);margin-bottom:6px}.thumb{margin-top:10px;width:100%;max-height:280px;object-fit:cover;border-radius:12px;border:1px solid var(--line)}.empty{padding:28px;text-align:center;color:var(--muted)}
+</style>
+</head>
+<body>
+<header><div class="title">🌿 植物养护追踪</div><div class="sub">龟背竹 · 发财树 · 文竹 · 仙人掌 · 蝴蝶兰</div></header>
+<main>
+  <div class="summary" id="summary"></div>
+  <div class="grid" id="cards"></div>
+  <section><h3>最近养护记录</h3><div class="logs" id="logs"><div class="empty">正在加载…</div></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const addDays=(s,n)=>{const d=new Date(s+'T00:00:00');d.setDate(d.getDate()+n);return d.toISOString().slice(0,10)};
+const fmt=s=>s||'暂无记录';
+async function boot(){
+  try{
+    const res=await fetch('data.json?ts='+Date.now(),{cache:'no-store'});
+    if(!res.ok) throw new Error('data.json 加载失败');
+    const data=await res.json();
+    const byId=Object.fromEntries(data.plants.map(p=>[p.id,p]));
+    $('summary').innerHTML=`<div class="pill">植物档案 <b>${data.plants.length}</b></div><div class="pill">总记录 <b>${data.logs.length}</b></div><div class="pill">更新于 <b>${(data.updatedAt||'').slice(0,10)}</b></div>`;
+    $('cards').innerHTML=data.plants.map(p=>`<article class="card"><h2>${p.name}</h2><span class="badge">约每 ${p.intervalDays} 天检查</span><div class="meta"><div><b>最近浇水：</b><span class="muted">${fmt(p.lastWatered)}</span></div><div><b>下次检查：</b><span class="muted">${p.lastWatered?addDays(p.lastWatered,p.intervalDays):'待记录'}</span></div><div><b>当前状态：</b><span class="muted">${p.status}</span></div><div><b>重点观察：</b><span class="muted">${p.focus}</span></div><div><b>浇水判断：</b><span class="muted">${p.wateringRule}</span></div></div></article>`).join('');
+    const ordered=[...data.logs].sort((a,b)=>b.date.localeCompare(a.date));
+    $('logs').innerHTML=ordered.map(r=>{const p=byId[r.plantId]||{name:r.plantId};return `<div class="log"><div class="head"><span><b>${p.name}</b> · ${r.type}</span><span>${r.date}</span></div><div>${r.text}</div>${r.image?`<img class="thumb" src="${r.image}" alt="${p.name} ${r.date}">`:''}</div>`}).join('')||'<div class="empty">还没有养护记录</div>';
+  }catch(e){$('logs').innerHTML=`<div class="empty">加载失败：${e.message}</div>`}
+}
+boot();
+</script>
+</body>
+</html>
