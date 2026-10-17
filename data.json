@@ -1,0 +1,67 @@
+{
+  "updatedAt": "2026-10-17T09:00:00+08:00",
+  "plants": [
+    {
+      "id": "monstera",
+      "name": "龟背竹",
+      "intervalDays": 7,
+      "lastWatered": "2026-10-17",
+      "status": "2026-10-17 已浇透至盆底出水；浇前土下3–5cm仅有极轻微湿气。后续等土下3–5cm明显干、盆变轻后再浇。",
+      "wateringRule": "土下3–5cm明显干、盆变轻后再浇透",
+      "focus": "新叶、卷叶、叶缘、土壤干湿",
+      "imageDir": "images/monstera/"
+    },
+    {
+      "id": "money-tree",
+      "name": "发财树",
+      "intervalDays": 10,
+      "lastWatered": "2026-10-17",
+      "status": "2026-10-17 已浇水；近期连续出现下部黄叶，未来1–2周继续观察是否新增黄叶。",
+      "wateringRule": "土下3–5cm干、盆变轻后再浇透",
+      "focus": "黄叶、盆底积水、根系和枝叶状态",
+      "imageDir": "images/money-tree/"
+    },
+    {
+      "id": "asparagus-fern",
+      "name": "文竹",
+      "intervalDays": 5,
+      "lastWatered": "2026-10-17",
+      "status": "2026-10-17 已浇水；此前盆土干到结块，基部多根枝条已黄化，倾向过度失水造成。保留绿色枝观察3–7天。",
+      "wateringRule": "土下2–3cm开始发干即可浇",
+      "focus": "基部黄化、干尖、掉叶、新芽",
+      "imageDir": "images/asparagus-fern/"
+    },
+    {
+      "id": "cactus",
+      "name": "仙人掌",
+      "intervalDays": 14,
+      "lastWatered": "2026-10-17",
+      "status": "2026-10-17 首次浇水；后续必须等基质基本完全干透再浇。",
+      "wateringRule": "盆土基本完全干透后再浇",
+      "focus": "基质干湿、软化、变色、积水",
+      "imageDir": "images/cactus/"
+    },
+    {
+      "id": "orchid",
+      "name": "蝴蝶兰",
+      "intervalDays": 7,
+      "lastWatered": "2026-10-17",
+      "status": "2026-10-17 已浇水；花期和叶片状态良好。",
+      "wateringRule": "根偏银灰且植料基本干再浇透，并充分沥干",
+      "focus": "根色、植料湿度、花苞、套盆积水",
+      "imageDir": "images/orchid/"
+    }
+  ],
+  "logs": [
+    {"date":"2026-10-17","plantId":"monstera","type":"浇水","text":"已浇透至盆底出水；后续等明显干再浇。","image":null},
+    {"date":"2026-10-17","plantId":"money-tree","type":"浇水","text":"盆土基本干后已浇透；继续观察黄叶趋势。","image":null},
+    {"date":"2026-10-17","plantId":"asparagus-fern","type":"浇水","text":"此前盆土干到结块，已补水；基部黄化继续观察。","image":null},
+    {"date":"2026-10-17","plantId":"cactus","type":"浇水","text":"首次浇水；下次必须等基质完全干透。","image":null},
+    {"date":"2026-10-17","plantId":"orchid","type":"浇水","text":"已浇水并充分沥干；约7天后检查根色和植料。","image":null},
+    {"date":"2026-10-17","plantId":"money-tree","type":"照片观察","text":"又出现约两片下部黄叶；当时盆土基本干。","image":null},
+    {"date":"2026-10-17","plantId":"asparagus-fern","type":"异常","text":"基部多根枝条明显黄化/橙黄；结合此前土壤干硬，更倾向失水过度。","image":null},
+    {"date":"2026-10-17","plantId":"monstera","type":"照片观察","text":"叶片整体饱满健康；浇水前深层仅有极轻微湿气。","image":null},
+    {"date":"2026-10-14","plantId":"money-tree","type":"照片观察","text":"出现两片受损/发黄叶片。","image":null},
+    {"date":"2026-10-12","plantId":"orchid","type":"照片观察","text":"花期整体状态良好。","image":null}
+  ]
+}
